@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 3212de764d942d842b3e0eddc917f182
+timeCreated: 1524322192
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: FrameZero
+    100002: frameZeroGun
+    100004: //RootNode
+    100006: punkReadyForSkin:mixamorig:Head
+    100008: punkReadyForSkin:mixamorig:HeadTop_End
+    100010: punkReadyForSkin:mixamorig:Hips
+    100012: punkReadyForSkin:mixamorig:LeftArm
+    100014: punkReadyForSkin:mixamorig:LeftFoot
+    100016: punkReadyForSkin:mixamorig:LeftForeArm
+    100018: punkReadyForSkin:mixamorig:LeftHand
+    100020: punkReadyForSkin:mixamorig:LeftHandIndex1
+    100022: punkReadyForSkin:mixamorig:LeftLeg
+    100024: punkReadyForSkin:mixamorig:LeftShoulder
+    100026: punkReadyForSkin:mixamorig:LeftToe_End
+    100028: punkReadyForSkin:mixamorig:LeftToeBase
+    100030: punkReadyForSkin:mixamorig:LeftUpLeg
+    100032: punkReadyForSkin:mixamorig:Neck
+    100034: punkReadyForSkin:mixamorig:RightArm
+    100036: punkReadyForSkin:mixamorig:RightFoot
+    100038: punkReadyForSkin:mixamorig:RightForeArm
+    100040: punkReadyForSkin:mixamorig:RightHand
+    100042: punkReadyForSkin:mixamorig:RightHandIndex1
+    100044: punkReadyForSkin:mixamorig:RightLeg
+    100046: punkReadyForSkin:mixamorig:RightShoulder
+    100048: punkReadyForSkin:mixamorig:RightToe_End
+    100050: punkReadyForSkin:mixamorig:RightToeBase
+    100052: punkReadyForSkin:mixamorig:RightUpLeg
+    100054: punkReadyForSkin:mixamorig:Spine
+    100056: punkReadyForSkin:mixamorig:Spine1
+    100058: punkReadyForSkin:mixamorig:Spine2
+    400000: FrameZero
+    400002: frameZeroGun
+    400004: //RootNode
+    400006: punkReadyForSkin:mixamorig:Head
+    400008: punkReadyForSkin:mixamorig:HeadTop_End
+    400010: punkReadyForSkin:mixamorig:Hips
+    400012: punkReadyForSkin:mixamorig:LeftArm
+    400014: punkReadyForSkin:mixamorig:LeftFoot
+    400016: punkReadyForSkin:mixamorig:LeftForeArm
+    400018: punkReadyForSkin:mixamorig:LeftHand
+    400020: punkReadyForSkin:mixamorig:LeftHandIndex1
+    400022: punkReadyForSkin:mixamorig:LeftLeg
+    400024: punkReadyForSkin:mixamorig:LeftShoulder
+    400026: punkReadyForSkin:mixamorig:LeftToe_End
+    400028: punkReadyForSkin:mixamorig:LeftToeBase
+    400030: punkReadyForSkin:mixamorig:LeftUpLeg
+    400032: punkReadyForSkin:mixamorig:Neck
+    400034: punkReadyForSkin:mixamorig:RightArm
+    400036: punkReadyForSkin:mixamorig:RightFoot
+    400038: punkReadyForSkin:mixamorig:RightForeArm
+    400040: punkReadyForSkin:mixamorig:RightHand
+    400042: punkReadyForSkin:mixamorig:RightHandIndex1
+    400044: punkReadyForSkin:mixamorig:RightLeg
+    400046: punkReadyForSkin:mixamorig:RightShoulder
+    400048: punkReadyForSkin:mixamorig:RightToe_End
+    400050: punkReadyForSkin:mixamorig:RightToeBase
+    400052: punkReadyForSkin:mixamorig:RightUpLeg
+    400054: punkReadyForSkin:mixamorig:Spine
+    400056: punkReadyForSkin:mixamorig:Spine1
+    400058: punkReadyForSkin:mixamorig:Spine2
+    2100000: FrameZero_MAT
+    4300000: FrameZero
+    4300002: frameZeroGun
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: FrameZero
+    13700002: frameZeroGun
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
