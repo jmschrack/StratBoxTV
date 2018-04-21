@@ -12,7 +12,7 @@ public class Chassis : MonoBehaviour {
 	public ChassisSystem frame2;
 	
 	public bool activated;
-	public bool isAlive;
+	public bool isAlive=true;
 
 	public void ActivateUnit(){
 		if(activated){
