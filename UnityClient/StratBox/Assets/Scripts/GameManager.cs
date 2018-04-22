@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<Squad> players;
 	public List<Squad> tacticalOrder;
-	public List<Squad> combatOrder;
+	public Queue<Chassis> combatOrder;
 	public int currentTacticalPlayer;
 
 	public static void rollDice(Chassis unit){
@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	void LastUpdate(){
+		
+	}
 	public void newTurn(){
 		foreach(Squad s in players){
 			s.newTurn();
@@ -38,13 +41,20 @@ public class GameManager : MonoBehaviour {
 			return -1*a.score.CompareTo(b.score);
 		});
 		currentTacticalPlayer=-1;
-		combatOrder= new List<Squad>();
+		combatOrder= new Queue<Chassis>();
 		nextPlayer();
 	}
 
 	public void nextPlayer(){
 		if(combatOrder.Count>0){
 			//combat stuff
+			Chassis c = combatOrder.Dequeue();
+			if(!c.activated){
+				//defensive activation
+				
+			}else{
+				//move,attack,spot
+			}
 		}else{
 			int lastIndex=currentTacticalPlayer;
 			
@@ -55,7 +65,7 @@ public class GameManager : MonoBehaviour {
 				//everyone is done
 				newTurn();
 			}else{
-				
+				ActionQueue.instance.RequestPlayerAction(tacticalOrder[currentTacticalPlayer]);
 				//next player stuff
 			}
 		}
@@ -148,5 +158,27 @@ public class GameManager : MonoBehaviour {
 	
 	}
 
+
+	
+
+
+	public static void Attacks(Chassis attacker, Chassis target){
+		if(!target.activated){
+			//queue up defensive activation
+			//queue up Attack resolve
+			//queue up defender action
+		}else{
+			int damageDelta=attacker.attackSystem.currentValue-target.defendSystem.currentValue;
+			if(damageDelta>0){
+
+			}
+		}
+	}
+	public void Spots(Chassis spotter, Chassis target){
+
+	}
+	public void Moves(Chassis unit, Vector2 location){
+
+	}
 
 }

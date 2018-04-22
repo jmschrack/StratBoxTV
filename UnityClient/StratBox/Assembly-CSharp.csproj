@@ -51,11 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ActionQueue.cs" />
+     <Compile Include="Assets\Scripts\ActionQueue.cs" />
      <Compile Include="Assets\Scripts\Chassis.cs" />
      <Compile Include="Assets\Scripts\ChassisSystem.cs" />
      <Compile Include="Assets\Scripts\Flag.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerAction.cs" />
      <Compile Include="Assets\Scripts\Squad.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
