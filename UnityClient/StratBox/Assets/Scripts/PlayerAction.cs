@@ -13,8 +13,8 @@ public class FinishAttack:PlayerAction{
 	}
 }
 public class AssignDice:PlayerAction{
-	ChassisSystem frame;
-	ChassisSystem chassisSystem;
+	public ChassisSystem frame;
+	public ChassisSystem chassisSystem;
 	public override void Execute(){
 		attacker.assignWildDice(frame,chassisSystem);
 	}

@@ -8,7 +8,13 @@ public class GameManager : MonoBehaviour {
 	public List<Squad> tacticalOrder;
 	public Queue<Chassis> combatOrder;
 	public int currentTacticalPlayer;
-
+	public static GameManager instance;
+	
+	/*
+	-------------------
+	Static Methods
+	-------------------
+	 */
 	public static void rollDice(Chassis unit){
 		rollDice(unit.defendSystem);
 		rollDice(unit.attackSystem);
@@ -27,48 +33,21 @@ public class GameManager : MonoBehaviour {
 			cs.currentValue=Mathf.Max(cs.currentValue,Random.Range(1,8));
 		}
 	}
+	/*
+	--------------
+	Local Methods
+	--------------
+	 */
 
-	void LastUpdate(){
-		
+	void Awake(){
+		if(instance==null)
+			instance=this;
+		else
+			Destroy(this);
 	}
-	public void newTurn(){
-		foreach(Squad s in players){
-			s.newTurn();
-		}
-		tacticalOrder= new List<Squad>();
-		tacticalOrder.AddRange(players);
-		tacticalOrder.Sort(delegate(Squad a, Squad b) {
-			return -1*a.score.CompareTo(b.score);
-		});
-		currentTacticalPlayer=-1;
-		combatOrder= new Queue<Chassis>();
-		nextPlayer();
-	}
-
-	public void nextPlayer(){
-		if(combatOrder.Count>0){
-			//combat stuff
-			Chassis c = combatOrder.Dequeue();
-			if(!c.activated){
-				//defensive activation
-				
-			}else{
-				//move,attack,spot
-			}
-		}else{
-			int lastIndex=currentTacticalPlayer;
-			
-			do{
-				currentTacticalPlayer=(currentTacticalPlayer+1)%tacticalOrder.Count;
-			}while(currentTacticalPlayer!=lastIndex&&!tacticalOrder[currentTacticalPlayer].hasUnitsLeft());
-			if(!tacticalOrder[currentTacticalPlayer].hasUnitsLeft()){
-				//everyone is done
-				newTurn();
-			}else{
-				ActionQueue.instance.RequestPlayerAction(tacticalOrder[currentTacticalPlayer]);
-				//next player stuff
-			}
-		}
+	void OnDestroy(){
+		if(instance=this)
+			instance=null;
 	}
 
 	void Start(){
@@ -86,6 +65,54 @@ public class GameManager : MonoBehaviour {
 		newTurn();
 
 	}
+	void LastUpdate(){
+		if(ActionQueue.instance.HasResponse()){
+			ActionQueue.instance.GetResponse().Execute();
+		}
+	}
+	public void newTurn(){
+		foreach(Squad s in players){
+			s.newTurn();
+		}
+		tacticalOrder= new List<Squad>();
+		tacticalOrder.AddRange(players);
+		tacticalOrder.Sort(delegate(Squad a, Squad b) {
+			return -1*a.score.CompareTo(b.score);
+		});
+		currentTacticalPlayer=tacticalOrder.Count-1;
+		combatOrder= new Queue<Chassis>();
+		nextPlayer();
+	}
+
+	public void nextPlayer(){
+		if(combatOrder.Count>0){
+			//combat stuff
+			Chassis c = combatOrder.Dequeue();
+			if(!c.activated){
+				//defensive activation
+				ActionQueue.instance.RequestDefenseActivation(GetChassisOwner(c),c);
+			}else{
+				//move,attack,spot
+				ActionQueue.instance.RequestPlayerAction(GetChassisOwner(c),c);
+			}
+		}else{
+			int lastIndex=currentTacticalPlayer;
+			
+			do{
+				currentTacticalPlayer=(currentTacticalPlayer+1)%tacticalOrder.Count;
+			}while(currentTacticalPlayer!=lastIndex&&!tacticalOrder[currentTacticalPlayer].hasUnitsLeft());
+			if(!tacticalOrder[currentTacticalPlayer].hasUnitsLeft()){
+				//everyone is done
+				newTurn();
+			}else{
+				//next player stuff
+				ActionQueue.instance.RequestActivation(tacticalOrder[currentTacticalPlayer]);
+				
+			}
+		}
+	}
+
+	
 
 	void calculatePlayersAssetScore(){
 		players.Sort(delegate(Squad a, Squad b){
@@ -159,12 +186,19 @@ public class GameManager : MonoBehaviour {
 	}
 
 
-	
+	static Squad GetChassisOwner(Chassis chassis){
+		foreach(Squad player in GameManager.instance.players){
+			if(player.units.Contains(chassis))
+				return player;
+		}
+		return null;
+	}
 
 
 	public static void Attacks(Chassis attacker, Chassis target){
 		if(!target.activated){
 			//queue up defensive activation
+			ActionQueue.instance.RequestDefenseActivation(GetChassisOwner(target),target);
 			//queue up Attack resolve
 			//queue up defender action
 		}else{
