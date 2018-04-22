@@ -12,6 +12,12 @@ public class FinishAttack:PlayerAction{
 		GameManager.Attacks(attacker,target);
 	}
 }
+public class ActivateUnit:PlayerAction{
+	public override void Execute(){
+		GameManager.rollDice(attacker);
+		ActionQueue.instance.RequestDiceAssign(GameManager.GetChassisOwner(attacker),attacker);
+	}
+}
 public class AssignDice:PlayerAction{
 	public ChassisSystem frame;
 	public ChassisSystem chassisSystem;

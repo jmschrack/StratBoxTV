@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour {
 		return null;
 	}
 
-
+	
 	public static void Attacks(Chassis attacker, Chassis target){
 		if(!target.activated){
 			//queue up defensive activation
